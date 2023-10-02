@@ -3,6 +3,7 @@ include '../config/db.php';
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@ include '../config/db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Register</title>
     <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     <div id="login-container-box" class="login-container-box">
@@ -19,8 +21,8 @@ include '../config/db.php';
             </div>
             <div class="login-container-body">
                 <form method="post">
-                    <input type="text" id="login-username" name="login-username" placeholder="Username">
-                    <input type="password" id="login-password" name="login-password" placeholder="Password">
+                        <input type="text" id="login-username" name="login-username" placeholder="Username">
+                        <input type="password" id="login-password" name="login-password" placeholder="Password">
                 </form>
                 <div class="buttons">
                     <a class="btn btn-white">Sign In</a>
@@ -29,6 +31,11 @@ include '../config/db.php';
             <div class="login-container-footer">
                 <p>Don't have an account? </p><button onclick="registerSwitch()">Sign Up</button>
             </div>
+        </div>
+        <div class="alert-container hidden">
+            <p id="msgLogin"></p>
+            <p id="errLoginUsername"></p>
+            <p id="errLoginPassword"></p>
         </div>
     </div>
 
@@ -50,6 +57,12 @@ include '../config/db.php';
             <div class="register-container-footer">
                 <p>Already have an account?</p><button onclick="registerSwitch()">Sign In</button>
             </div>
+        </div>
+        <div class="alert-container hidden">
+            <p id="msgRegister"></p>
+            <p id="errRegUsername"></p>
+            <p id="errRegPassword"></p>
+            <p id="errRegRepPass"></p>
         </div>
     </div>
 

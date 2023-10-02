@@ -23,6 +23,49 @@ class Database {
 
         return $conn;
     }
+
+    public function getTaskManagementData() {
+        $response = array();
+    
+        $sql = "SELECT * FROM tasks";
+        $result = $this->conn->query($sql);
+    
+        if ($result) {
+            $i = 0;
+            while ($row = $result->fetch_assoc()) {
+                $response[$i]['id'] = $row['id'];
+                $response[$i]['title'] = $row['title'];
+                $response[$i]['description'] = $row['description'];
+                $response[$i]['due_date'] = $row['due_date'];
+                $response[$i]['status'] = $row['status'];
+                $response[$i]['created_at'] = $row['created_at'];
+                $i++;
+            }
+            return json_encode($response, JSON_PRETTY_PRINT);
+        } else {
+            return json_encode(array("error" => "Query failed"));
+        }
+    }
 }
+
+//theese are the lines to get json data
+$database = new Database();
+$data = $database->getTaskManagementData();
+
+
+$dataArray = json_decode($data, true);
+
+$resultArray = array();
+
+foreach ($dataArray as $item) {
+    $id = $item['id'];
+    $resultArray[$id] = $item;
+}
+
+echo "<pre>";
+print_r($resultArray);
+echo "</pre>";
+
+
 
 ?>

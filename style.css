@@ -50,8 +50,8 @@ body{
     align-items: center;
     width: 20%;
     height: 45vh;
-    background: rgba(0, 0, 0, 0.6);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
 }
 
 .login-container-header{
@@ -77,7 +77,6 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 35vh;
 }
 
 .login-container-footer{
@@ -86,6 +85,17 @@ body{
     align-items: center;
     width: 100%;
     height: 10vh;
+}
+
+.login-container-body input{
+    width: 70%;
+    height: 3vh;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
 }
 
 .login-container-body button{
@@ -103,4 +113,171 @@ body{
     width: 30%;
     border-radius: 5px;
     font-size: 18px ;
+}
+
+#login-button:hover{
+    background: rgba(0, 0, 0, 0,5);
+    transition: background .5s;
+}
+
+.login-container-footer button{
+    background: none;
+    border: none;
+    outline: none;
+    color: rgb(99, 99, 99);
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/**********************REGISTER***************************/
+
+.register-container-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.register-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 45vh;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
+}
+
+.register-container-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+}
+
+.register-container-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35vh;
+}
+
+.register-container-body form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-container-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+}
+
+.register-container-body input{
+    width: 70%;
+    height: 3vh;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
+}
+
+.register-container-body button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    height: 5vh;
+    width: 30%;
+    border-radius: 5px;
+    font-size: 18px ;
+}
+
+#register-button:hover{
+    background: rgba(0, 0, 0, 0,5);
+    transition: background .5s;
+}
+
+.register-container-footer button{
+    background: none;
+    border: none;
+    outline: none;
+    color: rgb(99, 99, 99);
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+
+/********************************BUTTONS***************************************/
+.buttons{
+	background: #000;
+	left: 50%;
+    margin-top: 30px;
+}
+
+a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
+
+.btn,
+input[type="submit"]{
+	cursor: pointer;
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 12px;
+    line-height: 19px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; font-weight:400;
+    letter-spacing: 3px;
+    -webkit-transition: all .4s ease-in-out;
+       -moz-transition: all .4s ease-in-out;
+        -ms-transition: all .4s ease-in-out;
+         -o-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+}
+
+.btn-white{
+    border:solid 2px #fff;
+    background: transparent;
+    color: #fff !important;
+}
+.btn-white:hover{
+    border:solid 2px #fff;
+    background: #fff;
+    color: #1f1f1f !important;
+}
+
+.btn-color{
+    background: transparent;
+}
+.btn-color:hover{
+    color: #fff;
+}
+
+
+
+
+
+
+.hidden{
+    display: none;
 }

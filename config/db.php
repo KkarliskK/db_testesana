@@ -4,7 +4,6 @@ class Database {
     private $username = "root";
     private $password = ""; 
     private $database = "task_management"; 
-
     private $conn;
 
     // Constructor to establish the connection when the object is created
@@ -45,6 +44,25 @@ class Database {
         } else {
             return json_encode(array("error" => "Query failed"));
         }
+    }
+
+    function insert($sql)
+    {
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function select($sql)
+    {
+        $result = $this->conn->query($sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    function selectOne($sql)
+    {
+        $result = $this->conn->query($sql);
+        return $result->fetch_assoc();
     }
 }
 ?>

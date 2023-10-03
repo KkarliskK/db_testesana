@@ -8,7 +8,7 @@ function registerSwitch(){
 function submitt(forma){
     event.preventDefault();
     $.ajax({
-        url: "../controller/user_ctr.php",
+        url: "../controller/user_ctrl.php",
         type: "POST",
         dataType: "json",
         data: $("#"+forma).serialize(),
@@ -17,14 +17,25 @@ function submitt(forma){
             if(result.msgLogin == '' || result.msgRegister == ''){
                 $('#errLoginUsername').text(result.errLoginUsername);
                 $('#errLoginPassword').text(result.errLoginPassword);
+                $('#errRegName').text(result.errRegName);
                 $('#errRegUsername').text(result.errRegUsername);
                 $('#errRegPassword').text(result.errRegPassword);
                 $('#errRegRepPass').text(result.errRegRepPass);
+                $('#errRegRepeat').text(result.errRegRepeat);
+                $('#errRepeat').text(result.errRepeat);
                 $('#msgLogin').text('');
                 $('#msgRegister').text('');
             }else{
-                $('#msgLogin').text('');
-                $('#msgRegister').text('');
+                $('#msgLogin').text(result.msgLogin);
+                $('#msgRegister').text(result.msgRegister);
+                $('#errLoginUsername').text('');
+                $('#errLoginPassword').text('');
+                $('#errRegName').text('');
+                $('#errRepeat').text('');
+                $('#errRegUsername').text('');
+                $('#errRegPassword').text('');
+                $('#errRegRepPass').text('');
+                $('#errRegRepeat').text('');
                 $('#errSession').text('');
                 if(result.errSession == '1'){
                     window.location.href = "http://localhost/task_management/view/index.php";

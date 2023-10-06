@@ -1,19 +1,8 @@
 <?php
 include '../config/db.php';
-
+include 'include/header.php';
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Register</title>
-    <link rel="stylesheet" href="../public/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-</head>
-<body>
     <div id="login-container-box" class="login-container-box">
         <div class="login-container">
             <div class="login-container-header">
@@ -70,5 +59,8 @@ include '../config/db.php';
 
     <script src="../public/functions.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</body>
-</html>
+<?php 
+
+include 'include/footer.html';
+
+?>

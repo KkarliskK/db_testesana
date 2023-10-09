@@ -23,6 +23,7 @@ html {
 
 body{
     display: flex;
+    flex-direction: column;
     font-family: 'Monsterrat', sans-serif;
     min-height: 100vh;
     color: white;
@@ -118,7 +119,7 @@ body{
 }
 
 #login-button:hover{
-    background: rgba(0, 0, 0, 0,5);
+    background: rgba(0, 0, 0, 0.5);
     transition: background .5s;
 }
 
@@ -245,7 +246,6 @@ body{
 
 /********************************BUTTONS***************************************/
 .buttons{
-	background: #000;
 	left: 50%;
     margin-top: 30px;
 }
@@ -272,7 +272,7 @@ input[type="submit"]{
 
 .btn-white{
     border:solid 2px #fff;
-    background: transparent;
+    background: black;
     color: #fff !important;
 }
 .btn-white:hover{
@@ -299,11 +299,8 @@ header img {
 
 header{
     background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 80px;
+    width: 100%;
     display: flex;
     align-items: center;
     box-shadow: 0 0 25px 0 black;
@@ -323,9 +320,51 @@ header li a{
     font-size: 18px;
 }
 
+/**********************************TASK PAGE**********************************/
 
+.task-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
 
+.single-task-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    width: 33%;
+    height: 25vh;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.65);
+}
 
+.single-task-container:hover{
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
+    transition: all .5s;
+}
+
+.single-task-container p{
+    margin: 5px;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+    margin: 10px;
+}
+
+.buttons-container .buttons{
+    margin: 10px;
+}
 
 .hidden{
     display: none;

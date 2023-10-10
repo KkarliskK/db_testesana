@@ -19,5 +19,4 @@ foreach ($dataArray as $item) {
 
 echo json_encode($resultArray);
 
-
 ?>

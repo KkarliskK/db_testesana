@@ -1,6 +1,6 @@
 <?php
 
-include '../config/db.php';
+include '../config/api/db.php';
 include 'include/header.php';
 ?>
 

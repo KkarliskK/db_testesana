@@ -38,21 +38,7 @@ class ApiClient {
     }
 }
 
-// Usage
-$apiUrl = 'http://localhost/karlis/db_testing/config/api/updateApi.php';
 
-$apiClient = new ApiClient($apiUrl);
 
-$data = [
-    'id' => '1',
-    'title' => 'ok',
-    'description' => 'value2',
-    'due_date' => '2022-12-12',
-];
-
-$response = $apiClient->sendPostRequest($data);
-
-// Handle the response
-echo $response;
 
 ?>

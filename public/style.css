@@ -342,12 +342,12 @@ header li a{
     background: rgba(0, 0, 0, 0.5);
     margin: 20px;
     box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.65);
+    transition: all .25s ease-in-out;
 }
 
 .single-task-container:hover{
     background: rgba(0, 0, 0, 0.65);
     box-shadow: 0px 0px 15px -2px rgba(0,0,0,0.75);
-    transition: all .5s;
 }
 
 .single-task-container p{
@@ -365,6 +365,88 @@ header li a{
 .buttons-container .buttons{
     margin: 10px;
 }
+
+
+
+/*******************************************EDIT TASK***********************************************/
+
+.form-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 50vh;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.65);
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#edit-task input, #add-task input{
+    height: 4vh;
+    width: 60%;
+    padding: 5px;  
+    border: 1px solid #d7d8d8; 
+    outline: none;
+    font-size: 16px;
+    transition: all 0.25s ease-in-out; 
+    margin: 5px;
+}
+
+#edit-task label, #add-task label{
+    margin: 5px;
+}
+
+#edit-task input:hover, #add-task input:hover{
+    border: 1px solid #000000; 
+}
+
+#edit-task textarea, #add-task textarea{
+    resize: none;
+    width: 60%;
+    height: 8vh;
+    padding: 5px;  
+    border: 1px solid #d7d8d8; 
+    outline: none;
+    font-size: 16px;
+    font-family: 'Monsterrat', sans-serif;
+    transition: all 0.25s ease-in-out; 
+}
+
+#edit-task textarea:hover, #add-task textarea:hover{
+    border: 1px solid #000000; 
+}
+
+#edit-task button, #add-task button{
+    background: none;
+    border: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
 
 .hidden{
     display: none;

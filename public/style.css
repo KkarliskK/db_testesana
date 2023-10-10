@@ -328,7 +328,7 @@ header li a{
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .single-task-container{
@@ -338,9 +338,10 @@ header li a{
     border-radius: 10px;
     align-items: center;
     width: 33%;
-    height: 25vh;
+    min-height: 25vh;
     background: rgba(0, 0, 0, 0.5);
     margin: 20px;
+    padding: 20px;
     box-shadow: 0px 0px 10px -2px rgba(0,0,0,0.65);
     transition: all .25s ease-in-out;
 }
@@ -440,9 +441,22 @@ header li a{
 }
 
 
+/***************************************THE NUMBER OF TASKS TO SHOW*******************************************/
 
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
 
-
+.pagination a{
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+}
 
 
 

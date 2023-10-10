@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost"; 
     private $username = "root";
     private $password = ""; 
-    private $database = "task_management"; 
+    private $database = "task_management_kb"; 
     private $conn;
 
     // Constructor to establish the connection when the object is created
@@ -76,6 +76,14 @@ class Database {
         }
     }
 
+    function delete($sql)
+    {
+    if ($this->conn->query($sql)) {
+        return true; // Delete operation successful
+    } else {
+        return false; // Delete operation failed
+    }
+    }
 
     function select($sql)
     {

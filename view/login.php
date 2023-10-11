@@ -1,5 +1,4 @@
 <?php
-include '../config/api/db.php';
 include 'include/header.php';
 ?>
 
@@ -57,8 +56,6 @@ include 'include/header.php';
 
     </div>
 
-    <script src="../public/functions.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <?php 
 
 include 'include/footer.html';

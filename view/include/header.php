@@ -13,11 +13,8 @@
     <img src="include/icon.PNG" alt="logo">
         <nav>
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li><a href="tasks.php">Tasks</a></li>
                 <li><a href="addTask.php">Add Task</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Profile</a></li>
                 <li><a href="login.php">Sign Up</a></li>
             </ul>
         </nav>

@@ -460,6 +460,34 @@ header li a{
 
 
 
+@media only screen and (max-width: 600px) {
+    .single-task-container{
+        width: 90%;
+    }
+    .buttons{
+        width: 50%;
+    }
+
+    .btn,
+    input[type="submit"]{
+        letter-spacing: 1px;    
+        padding: 5px;
+    }
+
+    header li{
+        margin: 10px;
+    }
+
+    header *{
+        display: flex;
+    }
+
+    .form-container{
+        width: 90%;
+    }
+
+  }
+
 
 
 .hidden{

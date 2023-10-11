@@ -4,46 +4,34 @@ function registerSwitch(){
 }
 
 
-// ajax for register
-function submitt(forma){
+function addValidation() {
     event.preventDefault();
-    $.ajax({
-        url: "../controller/user_ctrl.php",
-        type: "POST",
-        dataType: "json",
-        data: $("#"+forma).serialize(),
-        success: function(result){
-            console.log(result);
-            if(result.msgLogin == '' || result.msgRegister == ''){
-                $('#errLoginUsername').text(result.errLoginUsername);
-                $('#errLoginPassword').text(result.errLoginPassword);
-                $('#errRegName').text(result.errRegName);
-                $('#errRegUsername').text(result.errRegUsername);
-                $('#errRegPassword').text(result.errRegPassword);
-                $('#errRegRepPass').text(result.errRegRepPass);
-                $('#errRegRepeat').text(result.errRegRepeat);
-                $('#errRepeat').text(result.errRepeat);
-                $('#msgLogin').text('');
-                $('#msgRegister').text('');
-            }else{
-                $('#msgLogin').text(result.msgLogin);
-                $('#msgRegister').text(result.msgRegister);
-                $('#errLoginUsername').text('');
-                $('#errLoginPassword').text('');
-                $('#errRegName').text('');
-                $('#errRepeat').text('');
-                $('#errRegUsername').text('');
-                $('#errRegPassword').text('');
-                $('#errRegRepPass').text('');
-                $('#errRegRepeat').text('');
-                $('#errSession').text('');
-                if(result.errSession == '1'){
-                    window.location.href = "http://localhost/task_management/view/index.php";
-                }
-            }
-        },
-        error: function(error){
-            console.log(error);
-        }
-    });
+
+    let title = $('#add-title').val();
+    let description = $('#add-description').val();
+    let dueDate = $('#add-due-date').val();
+    let errorTitle = $('#error-title'); 
+    let errorDescription = $('#error-description'); 
+    let errorDueDate = $('#error-due-date'); 
+
+    if (title.trim() === '') {
+        errorTitle.text('The title field is empty!');
+        errorTitle.show(); 
+    } else {
+        errorTitle.hide();
+    }
+    if (description.trim() === '') {
+        errorDescription.text('The description field is empty!');
+        errorDescription.show();
+    } else {
+        errorDescription.hide();
+    }
+    if (dueDate.trim() === '') {
+        errorDueDate.text('The date field is empty!');
+        errorDueDate.show();
+    } else {
+        errorDueDate.hide();
+        // If everything is correct, you can submit the form
+        $('#add-task').submit();
+    }
 }

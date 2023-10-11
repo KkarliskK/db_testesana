@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost"; 
     private $username = "root";
     private $password = ""; 
-    private $database = "task_management_kb"; 
+    private $database = "task_management"; 
     private $conn;
 
     // Constructor to establish the connection when the object is created

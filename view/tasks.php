@@ -38,12 +38,35 @@ $tasksToShow = array_slice($data, $startIndex, $tasksPerPage);
         <div class="single-task-container">
             <h1><?= $task['title'] ?></h1>
             <p><?= $task['description'] ?></p>
-            <p>Due Date: <?= $task['due_date'] ?></p>
-            <p>Status: <?= ($task['status'] == '0') ? 'Not Completed' : 'Completed' ?></p>
+            <?php
+            $today = date('Y-m-d');
+            if ($task['due_date'] == $today) {
+                echo '<p style="color: #FF3333">Due Date: ' . $task['due_date'] . ' </p>';
+            } else {
+                echo '<p>Due Date: ' . $task['due_date'] . ' </p>';
+            }
+            ?>
+            <?php
+            if($task['due_date'] < $today){
+                echo '<p style="color:red;">Status: You did not do task in time!</p>';
+            }else if($task['status'] == '0'){
+                echo '<p style="color:orange;">Status: Not compleated</p>';
+            }else{
+                echo '<p style="color:green;">Status: Compleated</p>';
+            }
+
+            ?>
             <div class="buttons-container">
-                <div class="buttons"><a class="btn btn-white" href="checkTask.php?id=<?= $task['id']?>">Check Task</a></div>
-                <div class="buttons"><a class="btn btn-white" href="editTask.php?id=<?= $task['id'] ?>">Edit Task</a></div>
-                <div class="buttons"><a class="btn btn-white" href="deleteTask.php?id=<?= $task['id'] ?>">Delete Task</a></div>
+                <?php
+                    if($task['due_date'] < $today){
+                        echo '<div class="buttons"><a class="btn btn-white" href="deleteTask.php?id= '.$task['id'].'">Delete Task</a></div>';
+                    }else{ ?>
+                        <div class="buttons"><a class="btn btn-white" href="checkTask.php?id=<?= $task['id']?>">Check Task</a></div>
+                        <div class="buttons"><a class="btn btn-white" href="editTask.php?id=<?= $task['id'] ?>">Edit Task</a></div>
+                        <div class="buttons"><a class="btn btn-white" href="deleteTask.php?id=<?= $task['id'] ?>">Delete Task</a></div>
+                    <?php
+                    }
+                    ?>
             </div>
             <p>Created at: <?= $task['created_at'] ?></p>
         </div>

@@ -11,7 +11,7 @@
             <label for="new_due_date">Due Date:</label>
             <input type="date" id="new-due-date" name="new-due-date" value="<?= $task->due_date ?>">
             <div class="buttons">
-                <button><a class="btn btn-white" id="edit-form-submit" name="edit-form-submit">Save Changes</button></a>
+                <button onclick="editValidation()"><a class="btn btn-white" id="edit-form-submit" name="edit-form-submit">Save Changes</button></a>
             </div>
         </form>
     </div>

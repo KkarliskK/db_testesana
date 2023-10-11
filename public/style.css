@@ -406,15 +406,17 @@ header li a{
     border: 1px solid #d7d8d8; 
     outline: none;
     font-size: 16px;
-    transition: all 0.25s ease-in-out; 
     margin: 5px;
+    border-radius: 2px;
+    transition: all 0.25s ease-in-out; 
 }
 
 #edit-task label, #add-task label{
     margin: 5px;
 }
 
-#edit-task input:hover, #add-task input:hover{
+#edit-task input:hover, #add-task input:hover,
+#edit-task input:active, #add-task input:active{
     border: 1px solid #000000; 
 }
 

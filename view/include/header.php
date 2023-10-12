@@ -15,7 +15,13 @@
             <ul>
                 <li><a href="tasks.php">Tasks</a></li>
                 <li><a href="addTask.php">Add Task</a></li>
-                <li><a href="login.php">Sign Up</a></li>
+                <?php
+                if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
+                    echo '<li><a href="sessionDestroy.php">Sign Out</a></li>';
+                } else {
+                    echo '<li><a href="login.php">Sign In</a></li>';
+                }
+                ?>
             </ul>
         </nav>
 </header>

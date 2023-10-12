@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+
+if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
+
+    header("Location: login.php");
+    exit;
+}
+
+
 include 'include/header.php';
 
 // Define the number of tasks per page (default set to 6)
@@ -24,6 +34,8 @@ if (isset($_GET['sort'])) {
     
     // Check if the sorting order is specified
     $sortOrder = isset($_GET['order']) ? $_GET['order'] : 'asc';
+} else {
+    $sortOrder = 'asc'; // Define sortOrder with a default value
 }
 
 // Function to compare tasks by due date
@@ -36,9 +48,27 @@ function compareByDueDate($a, $b) {
 // Function to compare tasks by status
 function compareByStatus($a, $b) {
     global $sortOrder; // Define sortOrder as a global variable
-    // Your existing compareByStatus function here
-    // Make sure to consider the $sortOrder for the sorting order
+    $statusA = $a['status'];
+    $statusB = $b['status'];
+
+    if ($statusA == $statusB) {
+        return 0; // They have the same status
+    }
+
+    if ($sortOrder === 'asc') {
+        return ($statusA < $statusB) ? -1 : 1;
+    } else {
+        // For descending order, place completed tasks first
+        if ($statusA === '1') {
+            return -1;
+        } elseif ($statusB === '1') {
+            return 1;
+        } else {
+            return ($statusA > $statusB) ? -1 : 1;
+        }
+    }
 }
+
 
 // Sort the data based on the chosen sorting method
 if ($sortBy === 'due_date') {
@@ -110,19 +140,28 @@ $tasksToShow = array_slice($data, $startIndex, $tasksPerPage);
 </div>
 
 <div class="pagination">
-    <?php if ($currentPage > 1) : ?>
-        <a href="?page=<?= $currentPage - 1 ?>&sort=<?= $sortBy ?>">Previous</a>
-    <?php endif; ?>
+    <?php
+    // Include the sorting order in the pagination links
+    $paginationBaseUrl = "?page=$currentPage";
+    if ($sortBy !== 'none') {
+        $paginationBaseUrl .= "&sort=$sortBy&order=$sortOrder";
+    }
+    
+    if ($currentPage > 1) {
+        $prevPage = $currentPage - 1;
+        echo "<a href='?page=$prevPage&sort=$sortBy&order=$sortOrder'>Previous</a>";
+    }
 
-    <?php if ($totalPages > 1) : ?>
-        <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
-            <a <?= ($i == $currentPage) ? 'class="active"' : '' ?> href="?page=<?= $i ?>&sort=<?= $sortBy ?>"><?= $i ?></a>
-        <?php endfor; ?>
-    <?php endif; ?>
+    for ($i = 1; $i <= $totalPages; $i++) {
+        $activeClass = ($i == $currentPage) ? 'class="active"' : '';
+        echo "<a $activeClass href='?page=$i&sort=$sortBy&order=$sortOrder'>$i</a>";
+    }
 
-    <?php if ($currentPage < $totalPages) : ?>
-        <a href="?page=<?= $currentPage + 1 ?>&sort=<?= $sortBy ?>">Next</a>
-    <?php endif; ?>
+    if ($currentPage < $totalPages) {
+        $nextPage = $currentPage + 1;
+        echo "<a href='?page=$nextPage&sort=$sortBy&order=$sortOrder'>Next</a>";
+    }
+    ?>
 </div>
 
 <?php include 'include/footer.html'; ?>

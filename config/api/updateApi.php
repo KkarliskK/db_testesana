@@ -1,37 +1,44 @@
 <?php
 include 'db.php';
 
-if(isset($_POST)){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = $_POST;
     $database = new Database();
 
-    $taskID = $data['id']; 
-    $newTitle = $data['title'];
-    $newDescription = $data['description'];
-    $newDueDate = $data['due_date'];
+    $taskID = isset($data['id']) ? $data['id'] : null;
+    $newTitle = isset($data['title']) ? $data['title'] : null;
+    $newDescription = isset($data['description']) ? $data['description'] : null;
+    $newDueDate = isset($data['due_date']) ? $data['due_date'] : null;
 
-    if(empty($newTitle)){
-        echo "Title is empty";
-    }else if(empty($newDescription)){
-        echo "Description is empty";
-    }else if(empty($newDueDate)){
-        echo "Due date is empty";
+    $errors = array(); // Create an empty array to store validation errors
+
+    if (empty($newTitle)) {
+        $errors['title'] = "Title is empty";
+    }
+    if (empty($newDescription)) {
+        $errors['description'] = "Description is empty";
+    }
+    if (empty($newDueDate)) {
+        $errors['due_date'] = "Due date is empty";
     } else {
         $today = new DateTime();
         $dueDate = DateTime::createFromFormat('Y-m-d', $newDueDate);
 
         if ($dueDate === false) {
-            echo "Invalid Due Date!";
+            $errors['due_date'] = "Invalid Due Date!";
         } else if ($dueDate < $today->setTime(0, 0, 0) && $dueDate->format('Y-m-d') !== $today->format('Y-m-d')) {
-            echo "Due Date cannot be in the past!";
-        } else {
-            $update = $database->editTask($taskID, $newTitle, $newDescription, $newDueDate);
-            print_r($data['id']);
+            $errors['due_date'] = "Due Date cannot be in the past!";
         }
     }
-}else{
-    echo "Dati nav padoti";
+
+    if (empty($errors)) {
+        $update = $database->editTask($taskID, $newTitle, $newDescription, $newDueDate);
+        echo json_encode(['status' => 'success', 'message' => 'Task updated successfully']);
+    } else {
+        // Return validation errors in JSON format
+        echo json_encode(['status' => 'error', 'errors' => $errors]);
+    }
+} else {
+    echo "Invalid request";
 }
-
 ?>
-

@@ -52,7 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-container-body">
         <form method="post" id="login-form">
             <input type="text" id="login-username" name="login-username" placeholder="Username">
+            <p style="color: #FF3333" id="errorUsername"></p>
             <input type="password" id="login-password" name="login-password" placeholder="Password">
+            <p style="color: #FF3333" id="errorPassword"></p>
+            <p style="color: #FF3333" id="error-container"></p>
             <div class="buttons">
                 <button type="submit" class="btn btn-white" id="login-form-submit" name="login-form-submit">Sign In</button>
             </div>
@@ -61,11 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="login-container-footer">
             <p>Don't have an account? </p><a href="http://localhost/karlis/db_testing/view/register.php">Sign Up</a>
         </div>
-    </div>
-    <div class="alert-container hidden">
-        <p id="msgLogin"></p>
-        <p id="errLoginUsername"></p>
-        <p id="errLoginPassword"></p>
     </div>
 </div>
 

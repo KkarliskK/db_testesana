@@ -95,7 +95,7 @@ body{
     height: 3vh;
     padding: 5px;
     margin: 10px;
-    border: none;
+    border: 1px solid black;
     outline: none;
     font-size: 16px;
     box-shadow: inset 0px 0px 26px -5px rgba(0,0,0,0.5);
@@ -210,22 +210,15 @@ body{
 
 a#link {position: absolute; left: 20px; bottom: 10px; text-decoration: none; color: #555; font-weight: bold;}
 
-.btn,
-input[type="submit"]{
-	cursor: pointer;
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 12px 18px;
-    font-size: 12px;
-    line-height: 19px;
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif; font-weight:400;
-    letter-spacing: 3px;
-    -webkit-transition: all .4s ease-in-out;
-       -moz-transition: all .4s ease-in-out;
-        -ms-transition: all .4s ease-in-out;
-         -o-transition: all .4s ease-in-out;
-            transition: all .4s ease-in-out;
+    width: 100%;
+    height: 4vh;
+    text-decoration: none;
+
 }
 
 .btn-white{
@@ -395,7 +388,7 @@ header li a{
 }
 
 #edit-task button, #add-task button, 
-#register-form button, #login-form button{
+#register-form button{
     background: none;
     border: none;
     outline: none;
@@ -511,6 +504,13 @@ header li a{
         width: 90%;
     }
 
+    .login-container{
+        width: 90%; 
+    }
+
+    .register-container{
+        width: 90%;
+    }
   }
 
 

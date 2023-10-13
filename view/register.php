@@ -47,10 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="register-container-body">
             <form method="POST" id="register-form">
                 <input type="text" id="register-name" name="register-name" placeholder="Name">
+                <p style="color: #FF3333" id="errorName"></p>
                 <input type="text" id="register-username" name="register-username" placeholder="Username">
+                <p style="color: #FF3333" id="errorUsername"></p>
                 <input type="password" id="register-password" name="register-password" placeholder="Password">
+                <p style="color: #FF3333" id="errorPassword"></p>
                 <input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat Password">
-                <p style="font-size: 12px; color: red;" id="msgRegister"></p>
+                <p style="color: #FF3333" id="error-container"></p>
                 <div class="buttons">
                     <button><a class="btn btn-white" id="register-form-submit" name="register-form-submit">Sign Up</a></button>
                 </div>

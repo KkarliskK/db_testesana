@@ -117,6 +117,115 @@ function editValidation() {
 }
 
 
+//validations for loign
+
+// $(document).ready(function() {
+//     $('#login-form').submit(function(e) {
+//         e.preventDefault();
+
+//         let username = $('#login-username').val();
+//         let password = $('#login-password').val();
+
+//         $.ajax({
+//             type: "POST",
+//             url: "http://localhost/karlis/db_testing/config/api/loginApi.php",
+//             data: {
+//                 username: username,
+//                 password: password
+//             },
+//             dataType: "json",
+//             success: function(response) {
+//                 if (response.status === "success") {
+//                     window.location.href = "tasks.php"; // Redirect on successful login
+//                 } else if (response.status === "error") {
+//                     let errorContainer = $('#error-container');
+//                     errorContainer.empty();
+
+//                     for (const errorField in response.errors) {
+//                         let errorMessage = response.errors[errorField];
+//                         let errorElement = $('<p></p>').text(errorMessage);
+//                         errorContainer.append(errorElement);
+//                     }
+//                 }
+//             },
+//             error: function(jqXHR, textStatus, errorThrown) {
+//                 console.log("AJAX request failed: " + textStatus, errorThrown);
+//             }
+//         });
+//     });
+// });
+
+
+
+
+// VALIDATION FOR REGISTER
+
+$(document).ready(function() {
+    $('#register-form').submit(function(e) {
+        e.preventDefault();
+
+        let name = $('#register-name').val();
+        let username = $('#register-username').val();
+        let password = $('#register-password').val();
+        let repeatPassword = $('#repeat-password').val();
+
+
+        $('#errorName').text('');
+        $('#errorUsername').text('');
+        $('#errorPassword').text('');
+        $('#error-container').text('');
+
+        if (name.trim() === '') {
+            $('#errorName').text('Name is required.');
+            return;
+        }
+
+        if (username.trim() === '') {
+            $('#errorUsername').text('Username is required.');
+            return;
+        }
+
+        if (password.trim() === '') {
+            $('#errorPassword').text('Password is required.');
+            return;
+        }
+
+        if (password !== repeatPassword) {
+            $('#error-container').text('Passwords do not match.');
+            return;
+        }
+
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/karlis/db_testing/config/api/registerApi.php", 
+            data: {
+                name: name,
+                username: username,
+                password: password
+            },
+            dataType: "json",
+            success: function(response) {
+                if (response.status === "success") {
+                    window.location.href = "login.php"; 
+                } else if (response.status === "error") {
+                    let errorContainer = $('#error-container');
+                    errorContainer.empty(); 
+
+                    for (const errorField in response.errors) {
+                        let errorMessage = response.errors[errorField];
+                        let errorElement = $('<p></p>').text(errorMessage);
+                        errorContainer.append(errorElement);
+                    }
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("AJAX request failed: " + textStatus, errorThrown);
+            }
+        });
+    });
+});
+
 
 
 
